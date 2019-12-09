@@ -1,8 +1,8 @@
 import React from 'react'
 import './Button.sass'
 
-const Button = ({ children, ...props }) => (
-  <button className='button' {...props}>
+const Button = ({ children, isGoogleSignIn, ...props }) => (
+  <button className={`${isGoogleSignIn ? 'google-sign-in' : ''} button`} {...props}>
     {children}
   </button>
 )
