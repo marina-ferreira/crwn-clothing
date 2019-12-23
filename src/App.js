@@ -3,6 +3,7 @@ import Header from './components/Header/Header'
 import HomePage from './pages/HomePage/HomePage'
 import ShopPage from './pages/Shop/Shop'
 import AuthPage from './pages/Auth/Auth'
+import CheckoutPage from './pages/Checkout/Checkout'
 import { auth, createUserProfileDoc } from './firebase/firebase.utils'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -43,6 +44,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
+          <Route exact path='/checkout' component={CheckoutPage} />
           <Route
             exact
             path='/auth'
