@@ -13,3 +13,8 @@ export const deleteItem = item => ({
   type: CartTypes.DELETE_ITEM,
   payload: item
 })
+
+export const removeItem = item => ({
+  type: CartTypes.REMOVE_ITEM,
+  payload: item
+})
