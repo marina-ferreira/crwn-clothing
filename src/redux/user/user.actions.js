@@ -27,3 +27,16 @@ export const signInFailure = error => ({
 export const checkUserSession = () => ({
   type: UserTypes.CHECK_USER_SESSION
 })
+
+export const signOutStart = () => ({
+  type: UserTypes.SIGN_OUT_START
+})
+
+export const signOutSuccess = () => ({
+  type: UserTypes.SIGN_OUT_SUCCESS
+})
+
+export const signOutFailure = error => ({
+  type: UserTypes.SIGN_OUT_FAILURE,
+  payload: error
+})
