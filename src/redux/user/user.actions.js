@@ -1,4 +1,4 @@
-import { UserTypes } from './user.types'
+import UserTypes from './user.types'
 
 export const setCurrentUser = user => ({
   type: UserTypes.SET_CURRENT_USER,
