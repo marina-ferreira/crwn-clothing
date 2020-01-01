@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import FormInput from 'components/form-input/form-input.component'
 import Button from 'components/button/button.component'
 import { auth } from 'firebase/firebase.utils'
-import { googleSignInStart } from 'redux/user/user.actions'
+import { googleSignInStart, emailSignInStart } from 'redux/user/user.actions'
 import './sign-in.styles.sass'
 
 class SignIn extends React.Component {
@@ -26,6 +26,9 @@ class SignIn extends React.Component {
     e.preventDefault()
 
     const { email, password } = this.state
+    const { emailSignInStart } = this.props
+
+    emailSignInStart(email, password)
 
     try {
       await auth.signInWithEmailAndPassword(email, password)
@@ -78,7 +81,8 @@ class SignIn extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  googleSignInStart: () => dispatch(googleSignInStart())
+  googleSignInStart: () => dispatch(googleSignInStart()),
+  emailSignInStart: (email, password) => dispatch(emailSignInStart({ email, password }))
 })
 
 export default connect(null, mapDispatchToProps)(SignIn)
