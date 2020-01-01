@@ -4,7 +4,6 @@ import HomePage from './pages/home/home.component'
 import ShopPage from './pages/shop/shop.component'
 import AuthPage from './pages/auth/auth.component'
 import CheckoutPage from './pages/checkout/checkout.component'
-import { auth, createUserProfileDoc } from './firebase/firebase.utils'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
@@ -19,17 +18,17 @@ class App extends React.Component {
   componentDidMount() {
     const { setCurrentUser } = this.props
 
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDoc(userAuth)
+    // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    //   if (userAuth) {
+    //     const userRef = await createUserProfileDoc(userAuth)
 
-        userRef.onSnapshot(snapshot => {
-          setCurrentUser({ id: snapshot.id, ...snapshot.data() })
-        })
-      } else {
-        setCurrentUser(userAuth)
-      }
-    })
+    //     userRef.onSnapshot(snapshot => {
+    //       setCurrentUser({ id: snapshot.id, ...snapshot.data() })
+    //     })
+    //   } else {
+    //     setCurrentUser(userAuth)
+    //   }
+    // })
   }
 
   componentWillUnmount() {
