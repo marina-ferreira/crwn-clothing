@@ -32,7 +32,7 @@ const CheckoutPage = ({ cartItems, total }) => (
     <div className="test-credit-card">
       <h4>Test Credit Card</h4>
       <p>Number: 4242 4242 4242 4242</p>
-      <p>Expiration Date: 01/20</p>
+      <p>Expiration Date: 02/20</p>
       <p>CVV: 123</p>
     </div>
 
